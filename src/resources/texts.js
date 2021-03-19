@@ -1,4 +1,4 @@
-import {productsPictures, productsLogo, productsAvatars} from "./images"
+import {productsPictures, productsLogo, productsAvatars, learnMoreIcons} from "./images"
 
 export const classpassPageData = {
     introImage: productsPictures.classpassIntro,
@@ -78,7 +78,7 @@ export const b6aData = {
         "React/Redux SPA with the support of a custom backend API using Python. Technical steps involved adding initial " +
         "API support to the legacy application and transitioning API’s to the new stack as product development progressed" +
         " to guarantee uninterrupted service. Within 3 months RPS completely replaced the client facing functionality " +
-        "and moved on to admin/back office development.\n" + "New features required Machine Learning (Media analysis" +
+        "and moved on to admin/back office development.\n New features required Machine Learning (Media analysis" +
         " platform) integration to process games and visualize on-screen sponsorship results, Social Sentiment Analysis" +
         " Platform (natural language processing) for Twitter Instagram and Facebook.",
     results: ["- Fixed the reservation system to prevent overbooking and improved scalability and performance.",
@@ -118,7 +118,7 @@ export const walkliData = {
         "and raise funding.",
     solutionsTexst: "After product roadmapping, feature scoping, and sizing, RPS and walkli agreed on the parameters and" +
         " deliverables for the first release. RPS’ Product Manager led one week sprints to gauge team development " +
-        "velocity, before switching to two week sprints. \n" + "Key Features & Integrations: google Maps API customization" +
+        "velocity, before switching to two week sprints. \n Key Features & Integrations: google Maps API customization" +
         " for custom map creation, admin system with CMS, rich content creation and viewing interfaces, city search " +
         "functionality, user profiles, social media sharing",
     results: ["- RPS released the first version of the web app after 3 months.",
@@ -130,3 +130,39 @@ export const walkliData = {
         "Amsterdam tourism board, and Croatia tourism board. Walkli was selected as a MassChallenge 2018 finalist."
 }
 
+export const cardsItems = [
+    {
+        title: 'startups',
+        image: learnMoreIcons.startups,
+        text: 'For startups, RPS helps with overall strategy to assist founders with building and taking their products to market.',
+    },
+    {
+        title: 'enterprise',
+        image: learnMoreIcons.enterprise,
+        text: 'For enterprise companies, RPS applies their startup expertise to implement nimble digital transformations.',
+    },
+    {
+        title: 'investment',
+        image: learnMoreIcons.investment,
+        text: 'RPS invests in select companies across industries. You can find investment criteria here.',
+    },
+]
+
+export const invesmentTexts = [
+    {
+        title: 'Why remedy product studio?',
+        body: 'Our experience working with venture backed startups gives us insight into what a company needs to demonstrate to successfully raise its next round of funding. We know the importance of hitting key metrics to demonstrate product-market fit and growth potential.'
+    },
+    {
+        title: 'How does it work?',
+        body: 'We help startups prepare for fundraising by crafting the narrative, preparing the pitch, and ensuring you can demonstrate product-market fit. We actively connect startups with angels and venture capitalists in our network. During the fundraising process we help with deck preparation, pitch practice, and technical due diligence.'
+    },
+    {
+        title: 'Looking for a Technical Co-Founder?',
+        body: 'On a limited basis, Remedy co-founds companies with talented entrepreneurs who are looking for a technical co-founder. Ideal Founders for this program are industry experts that have a competitive advantage in a large market.'
+    },
+    {
+        title: 'What do we offer?',
+        body: 'Remedy provides funding, technical resources, and senior technical and product leadership in exchange for a meaningful equity stake.'
+    },
+]

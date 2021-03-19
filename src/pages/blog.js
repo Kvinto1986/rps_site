@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { withPreview } from 'gatsby-source-prismic'
-import BlogPosts from '../components/BlogPosts'
+import BlogPosts from '../components/pagesContent/BlogPosts'
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import {Container} from "react-bootstrap";
@@ -45,11 +44,11 @@ export const query = graphql`
     }
   }
 `
-
-export const Homepage = ({ data }) => {
-    if (!data) return null
+const BlogPage = ({ data }) => {
+    if (!data) {
+        return null
+    }
     const posts = data.allPrismicPost.edges
-    console.log(data)
 
     return (
         <>
@@ -61,4 +60,4 @@ export const Homepage = ({ data }) => {
     )
 }
 
-export default withPreview(Homepage)
+export default BlogPage

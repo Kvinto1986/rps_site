@@ -1,12 +1,9 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import {RichText} from 'prismic-reactjs'
-import {withPreview} from 'gatsby-source-prismic'
-import {ImageCaption, Quote, Text} from '../components/slices'
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import {PostSummary} from "../components/BlogPosts"
-import {Container, Image, Row} from "react-bootstrap";
+import {Container, Image} from "react-bootstrap";
 import "../styles/blogPosts.css"
 
 export const query = graphql`
@@ -69,22 +66,33 @@ export const query = graphql`
 
 const PostSlices = ({slices}) =>
     slices.map((slice, index) => {
-        console.log(slice.primary.image)
         return (() => {
             switch (slice.slice_type) {
                 case 'text':
                     return (
-                        <Text key={index} slice={slice}/>
+                        <Container key={index + slice.slice_type} className="mt-4">
+                            <RichText
+                                key={index}
+                                render={slice.primary.text.raw || []}
+                            />
+                        </Container>
                     )
 
                 case 'quote':
                     return (
-                        <Quote key={index} slice={slice}/>
+                        <blockquote
+                            key={index + slice.slice_type}>
+                            {RichText.asText(slice.primary.quote.raw)}
+                        </blockquote>
                     )
 
                 case 'image_with_caption':
                     return (
-                        <Image className="mt-5" key={index} width={1080} src={slice.primary.image.url}/>
+                        <Container key={index + slice.slice_type}>
+                            <Image
+                                className="postImage mt-4"
+                                src={slice.primary.image.url}/>
+                        </Container>
                     )
 
                 default:
@@ -106,7 +114,9 @@ const PostBody = ({blogPost, id}) => {
                     <p style={{textAlign: "center"}}>{RichText.asText(blogPost.title_text.raw).length !== 0
                     && RichText.asText(blogPost.title_text.raw)}</p>
                 </Container>
-                <Image src={blogPost.title_image.url}/>
+                <Container>
+                    <Image className="postImage" src={blogPost.title_image.url}/>
+                </Container>
             </Container>
             <Container className="postText d-flex flex-wrap justify-content-center">
                 <PostSlices slices={blogPost.body}/>
@@ -116,16 +126,16 @@ const PostBody = ({blogPost, id}) => {
     )
 }
 
-export const Post = ({data}) => {
+const Post = ({data}) => {
     if (!data) return null
     const post = data.prismicPost.data
     return (
         <>
             <Header/>
-            <PostBody blogPost={post} id={data.prismicPost.data.id}/>
+            <PostBody blogPost={post} id={data.prismicPost.data.title_image.url.charAt(8)}/>
             <Footer/>
         </>
     )
 }
 
-export default withPreview(Post)
+export default Post

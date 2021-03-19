@@ -1,8 +1,8 @@
 import * as React from "react"
 import {Card, Col, Container, Image, Row} from "react-bootstrap"
-import {serviceIcons, productsLogo, productsPictures} from "../resources/images"
+import {serviceIcons, productsLogo, productsPictures} from "../../resources/images"
 import Link from "gatsby-link";
-import "../styles/companyInfo.css"
+import "../../styles/companyInfo.css"
 
 function ServiceColumn({iconsArray, textsArray}) {
     return (
@@ -54,7 +54,7 @@ function ProductPictureBlock({productName, picture, featuresArray}) {
             </Link>
             <Card.Body>
                 <Card.Title>{productName}</Card.Title>
-                <Card.Text>
+                <Card.Text className="d-flex flex-wrap">
                     {featuresList(featuresArray)}
                 </Card.Text>
             </Card.Body>
@@ -62,7 +62,7 @@ function ProductPictureBlock({productName, picture, featuresArray}) {
     )
 }
 
-const CompanyInfoMainPage = () => {
+const CompanyInfoMainPageContent = () => {
     return (
         <Container fluid>
             <Container id="services" className="servicesContainer">
@@ -114,4 +114,4 @@ const CompanyInfoMainPage = () => {
     )
 }
 
-export default CompanyInfoMainPage
+export default CompanyInfoMainPageContent

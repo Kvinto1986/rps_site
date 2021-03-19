@@ -1,14 +1,13 @@
 import * as React from "react"
 import {Col, Container, Image, Row} from "react-bootstrap";
 import "../styles/projectPage.css"
-import {Link} from "gatsby";
 import {Link45deg} from "react-bootstrap-icons";
-import {featuresList} from "./CompanyInfoMainPage";
+import {featuresList} from "../components/pagesContent/CompanyInfoMainPageContent";
 
 function simpleList(textArray) {
     return <ul className="list-group" style={{listStyleType: "none"}}>
-        {textArray.map(elem => {
-            return <li style={{fontSize: 14}}>{elem}</li>
+        {textArray.map((elem, index) => {
+            return <li key={elem + index} style={{fontSize: 14}}>{elem}</li>
         })}
     </ul>
 }
@@ -23,7 +22,7 @@ const ProjectPageTemplate = ({data}) => {
                 <Link45deg
                     size={30}
                 />
-                <Link className="ml-2 mr-2" to={data.siteLink} rel="noreferrer" target="_blank">{data.site}</Link>
+                <a className="ml-2 mr-2" href={data.siteLink} rel="noreferrer" target="_blank">{data.site}</a>
             </span>
             </div>
             <Container className="mt-5">
@@ -54,8 +53,8 @@ const ProjectPageTemplate = ({data}) => {
                         <p className="infoText">{data.solutionsTexst}</p>
                         <h4 className="mt-4 mb-3">Results</h4>
                         <ul className="list-group" style={{listStyleType: "none"}}>
-                            {data.results.map(elem => {
-                                return <li>{elem}</li>
+                            {data.results.map((elem, index) => {
+                                return <li key={elem.charAt(8) + index}>{elem}</li>
                             })}
                         </ul>
                         <h4 className="mt-3">Business Impact</h4>

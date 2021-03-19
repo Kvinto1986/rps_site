@@ -1,13 +1,13 @@
 import * as React from "react";
-import MainPageTemplate from "../components/MainPageTemplate"
+import MainPageTemplate from "../templates/MainPageTemplate"
 import "../styles/index.css";
-import InvestmentPage from '../components/InvestmentPage'
+import InvestmentPageContent from '../components/pagesContent/InvestmentPageContent'
 
 const IndexPage = () => {
     return (
         <>
             <MainPageTemplate>
-                <InvestmentPage />
+                <InvestmentPageContent />
             </MainPageTemplate>
         </>
     )

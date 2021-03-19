@@ -3,6 +3,15 @@
     text-align: center;
 }
 
+.auth{
+    text-align: center;
+    opacity: 0.7;
+}
+
+.introImage{
+    width: 100%;
+}
+
 .readLink {
     text-decoration: underline;
     opacity: 0.6;
@@ -21,4 +30,7 @@
 .postText a:hover {
     opacity: 1;
     color: blue;
+}
+.postImage{
+    width: 100%;
 }

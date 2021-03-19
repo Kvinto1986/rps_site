@@ -1,8 +1,8 @@
 import React from 'react'
 import {Link} from 'gatsby'
-import {RichText, Date} from 'prismic-reactjs'
-import {Col, Container, Image, Row} from "react-bootstrap";
-import "../styles/blogPosts.css"
+import {RichText} from 'prismic-reactjs'
+import {Container, Image} from "react-bootstrap";
+import "../../styles/blogPosts.css"
 
 const firstParagraph = (post) => {
     const firstTextSlice = post.body.find((slice) => slice.slice_type === 'text')
@@ -29,19 +29,19 @@ const PostSummary = ({post, id}) => {
                     && RichText.asText(post.node.data.title.raw)
                     }
                 </h4>
-                <p style={{textAlign: "center"}}>{RichText.asText(post.node.data.title_text.raw).length !== 0
+                <p className="auth">{RichText.asText(post.node.data.title_text.raw).length !== 0
                 && RichText.asText(post.node.data.title_text.raw)}</p>
             </Container>
-            <Image src={post.node.data.title_image.url}/>
-            <Container className={"mt-4 d-flex flex-wrap justify-content-center"}>
-                <Col xl={10} sm={12}>{firstParagraph(post.node.data)}</Col>
+            <Image className="introImage" src={post.node.data.title_image.url}/>
+            <Container fluid className={"mt-4 d-flex flex-wrap justify-content-center"}>
+                {firstParagraph(post.node.data)}
             </Container>
             <Link className="readLink mt-3" to={post.node.url}>READ MORE</Link>
         </Container>
     )
 }
 
-export default ({posts}) => {
+const BlogPosts = ({posts}) => {
     if (!posts) return null
     return (
         <Container>
@@ -51,3 +51,5 @@ export default ({posts}) => {
         </Container>
     )
 }
+
+export default BlogPosts

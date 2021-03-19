@@ -1,0 +1,7 @@
+.navBlock {
+    position: absolute;
+    left: 0;
+    top: 47%;
+    width: 100%;
+    zIndex: 200;
+}

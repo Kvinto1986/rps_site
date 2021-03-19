@@ -1,6 +1,6 @@
 import * as React from "react";
-import MainContent from '../components/MainPageContent'
-import MainPageTemplate from "../components/MainPageTemplate"
+import MainContent from '../components/pagesContent/MainPageContent'
+import MainPageTemplate from "../templates/MainPageTemplate"
 import "../styles/index.css"
 
 const IndexPage = () => {
