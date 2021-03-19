@@ -1,6 +1,7 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap"
 import {Envelope, Instagram, Linkedin, Twitter} from "react-bootstrap-icons";
+import "../styles/footer.css"
 
 const Footer = () => {
     return (
