@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {Image, Nav, Navbar} from "react-bootstrap"
 import {commonIcons} from "../resources/images"
 import {linksArray, singleLinksArray} from "../resources/links"
@@ -12,10 +12,11 @@ const NavLinks = () => {
         return elem
     })
 
+
     return (
         newLinksArray.map((elem, index) => {
             return (
-                <Nav.Link key={elem + index} as={Link} to={elem}>
+                <Nav.Link eventKey={index} key={elem + index} as={Link} to={elem}>
                     {linksArray[index].slice(1).charAt(0).toUpperCase() + linksArray[index].slice(2).replace(/([A-Z])/g, ' $1').trim()}
                 </Nav.Link>
             )
@@ -24,16 +25,41 @@ const NavLinks = () => {
 }
 
 const Header = () => {
+    const nav = useRef(null)
+    const collapse = useRef(null)
+    const [navExpanded, setNavExpanded] = useState(false)
+
+    const handleDocumentClick = (e) => {
+        if (e.target !== nav.current && !nav.current.contains(e.target)) {
+            closeNav()
+        }
+    }
+
+    function closeNav() {
+        setNavExpanded(false);
+    }
+
+    useEffect(() => {
+        window.addEventListener('click', handleDocumentClick, true)
+        return () => window.removeEventListener('click', handleDocumentClick, true)
+    }, [])
+
     return (
-        <Navbar collapseOnSelect expand="lg" className="container mt-3 mb-3">
+        <Navbar
+            onToggle={setNavExpanded}
+            expanded={navExpanded}
+            ref={nav}
+            collapseOnSelect
+            expand="lg"
+            className="container mt-3 mb-3">
             <Navbar.Brand
                 className="justify-content-start">
                 <Link to="/">
                     <Image src={commonIcons.remedyIcon}/>
                 </Link>
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-            <Navbar.Collapse id="responsive-navbar-nav">
+            <Navbar.Toggle/>
+            <Navbar.Collapse ref={collapse}>
                 <Nav className="mr-auto">
                 </Nav>
                 <Nav className="justify-content-end">
