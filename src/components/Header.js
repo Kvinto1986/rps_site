@@ -31,12 +31,8 @@ const Header = () => {
 
     const handleDocumentClick = (e) => {
         if (e.target !== nav.current && !nav.current.contains(e.target)) {
-            closeNav()
+            setNavExpanded(false);
         }
-    }
-
-    function closeNav() {
-        setNavExpanded(false);
     }
 
     useEffect(() => {
