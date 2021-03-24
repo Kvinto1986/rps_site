@@ -1,8 +1,8 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import {RichText} from 'prismic-reactjs'
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/common/Header";
+import Footer from "../components/common/Footer";
 import {Container, Image} from "react-bootstrap";
 import "../styles/blogPosts.css"
 
@@ -64,41 +64,44 @@ export const query = graphql`
   }
 `
 
-const PostSlices = ({slices}) =>
-    slices.map((slice, index) => {
-        return (() => {
-            switch (slice.slice_type) {
-                case 'text':
-                    return (
-                        <Container key={index + slice.slice_type} className="mt-4">
-                            <RichText
-                                key={index}
-                                render={slice.primary.text.raw || []}
-                            />
-                        </Container>
-                    )
+const PostSlices = ({slices}) => {
+    return (
+        slices.map((slice, index) => {
+            return (() => {
+                switch (slice.slice_type) {
+                    case 'text':
+                        return (
+                            <Container key={index + slice.slice_type} className="mt-4">
+                                <RichText
+                                    key={index}
+                                    render={slice.primary.text.raw || []}
+                                />
+                            </Container>
+                        )
 
-                case 'quote':
-                    return (
-                        <blockquote
-                            key={index + slice.slice_type}>
-                            {RichText.asText(slice.primary.quote.raw)}
-                        </blockquote>
-                    )
+                    case 'quote':
+                        return (
+                            <blockquote
+                                key={index + slice.slice_type}>
+                                {RichText.asText(slice.primary.quote.raw)}
+                            </blockquote>
+                        )
 
-                case 'image_with_caption':
-                    return (
-                        <Container key={index + slice.slice_type}>
-                            <Image
-                                className="postImage mt-4"
-                                src={slice.primary.image.url}/>
-                        </Container>
-                    )
+                    case 'image_with_caption':
+                        return (
+                            <Container key={index + slice.slice_type}>
+                                <Image
+                                    className="postImage mt-4"
+                                    src={slice.primary.image.url}/>
+                            </Container>
+                        )
 
-                default:
-            }
-        })()
-    })
+                    default:
+                }
+            })()
+        })
+    )
+}
 
 const PostBody = ({blogPost, id}) => {
     return (
@@ -127,8 +130,11 @@ const PostBody = ({blogPost, id}) => {
 }
 
 const Post = ({data}) => {
-    if (!data) return null
+    if (!data) {
+        return null
+    }
     const post = data.prismicPost.data
+
     return (
         <>
             <Header/>

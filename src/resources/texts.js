@@ -1,4 +1,4 @@
-import {productsPictures, productsLogo, productsAvatars, learnMoreIcons} from "./images"
+import {productsPictures, productsLogo, productsAvatars, learnMoreIcons, startupsIcons} from "./images"
 
 export const classpassPageData = {
     introImage: productsPictures.classpassIntro,
@@ -165,4 +165,32 @@ export const invesmentTexts = [
         title: 'What do we offer?',
         body: 'Remedy provides funding, technical resources, and senior technical and product leadership in exchange for a meaningful equity stake.'
     },
+]
+
+export const startupsTexts = [
+    {
+        title: 'What should we build',
+        name: 'strategy',
+        image: startupsIcons.oneIcon,
+        body: 'We will sit down with you to understand your long term goals, business objectives, KPI’s, and budget to create an effective strategy to take your product to market. Our extensive network allows us to make strategic introductions for our partners to VCs, potential clients, and other resources to accelerate growth.'
+    },
+    {
+        title: 'How should you build it?',
+        name: 'execution',
+        image: startupsIcons.twoIcon,
+        body: 'We will work with you to execute your product in the most efficient way possible. We use lean development practices and believe in releasing early and iterating often. We will consider using off the shelf tools, APIs, and custom code to see what best fits your company’s needs. Our MVPs are built in around 8 weeks and we institute analytics, reporting, and user interviews to iterate based on user feedback.'
+    },
+    {
+        title: 'When and how should you deploy?',
+        name: 'launch',
+        image: startupsIcons.threeIcon,
+        body: 'The RPS team will create a deployment strategy for when your product is ready to hit the market. We work closely with your team and make sure we have an understanding of your stakeholders expectations as we plan the launch. Once released, RPS implements reporting & analytics tools to gather qualitative and quantitative feedback.'
+    },
+    {
+        title: 'How will you grow it',
+        name: 'investment',
+        image: startupsIcons.fourIcon,
+        body: 'RPS invests in select companies across industries. You can find requirements for investment here. In addition to our own investment, we work with a network of angels and venture capitalists to match startups to the best investor fits. We help startups prepare for fundraising by crafting the narrative, preparing the pitch, and ensuring you are hitting key metrics to demonstrate product-market fit.'
+    },
+
 ]

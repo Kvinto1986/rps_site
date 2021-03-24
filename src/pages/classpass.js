@@ -1,8 +1,8 @@
 import * as React from "react"
 import ProjectPageTemplate from "../templates/ProjectPageTemplate"
 import {classpassPageData} from "../resources/texts"
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/common/Header";
+import Footer from "../components/common/Footer";
 
 const ClasspassPage = () => {
     return (

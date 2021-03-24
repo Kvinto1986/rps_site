@@ -2,8 +2,8 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import BlogPosts from '../components/pagesContent/BlogPosts'
 import Page404 from './404'
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/common/Header";
+import Footer from "../components/common/Footer";
 import {Container} from "react-bootstrap";
 
 export const query = graphql`

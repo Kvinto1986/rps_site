@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Image, Nav, Navbar} from "react-bootstrap"
-import {commonIcons} from "../resources/images"
-import {linksArray, singleLinksArray} from "../resources/links"
+import {commonIcons} from "../../resources/images"
+import {linksArray, singleLinksArray} from "../../resources/links"
 import {Link} from "gatsby";
 
 const NavLinks = () => {

@@ -1,8 +1,8 @@
 import * as React from "react"
 import {Col, Container, Image, Row} from "react-bootstrap";
-import "../styles/projectPage.css"
 import {Link45deg} from "react-bootstrap-icons";
 import {featuresList} from "../components/pagesContent/CompanyInfoMainPageContent";
+import "../styles/projectPage.css"
 
 function simpleList(textArray) {
     return <ul className="list-group" style={{listStyleType: "none"}}>
