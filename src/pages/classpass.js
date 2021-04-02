@@ -4,10 +4,12 @@ import {classpassPageData} from "../resources/texts"
 import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
 
-const ClasspassPage = () => {
+const ClasspassPage = ({location}) => {
     return (
         <>
-            <Header/>
+            <Header
+                path={location.pathname}
+            />
             <ProjectPageTemplate
                 data={classpassPageData}
             />

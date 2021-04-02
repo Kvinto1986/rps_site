@@ -45,7 +45,7 @@ export const query = graphql`
     }
   }
 `
-const BlogPage = ({data}) => {
+const BlogPage = ({data, location}) => {
     if (!data) {
         return (
             <>
@@ -57,7 +57,9 @@ const BlogPage = ({data}) => {
 
     return (
         <>
-            <Header/>
+            <Header
+                path={location.pathname}
+            />
             <Container><h3 style={{textAlign: "center"}} className="mt-5">RoadmApp</h3></Container>
             <BlogPosts posts={posts}/>
             <Footer/>

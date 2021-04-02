@@ -129,7 +129,7 @@ const PostBody = ({blogPost, id}) => {
     )
 }
 
-const Post = ({data}) => {
+const Post = ({data,location}) => {
     if (!data) {
         return null
     }
@@ -137,7 +137,9 @@ const Post = ({data}) => {
 
     return (
         <>
-            <Header/>
+            <Header
+                path={location.pathname}
+            />
             <PostBody blogPost={post} id={data.prismicPost.data.title_image.url.charAt(8)}/>
             <Footer/>
         </>

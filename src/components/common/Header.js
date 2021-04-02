@@ -1,13 +1,12 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Image, Nav, Navbar} from "react-bootstrap"
-import window from "global"
 import {commonIcons} from "../../resources/images"
 import {linksArray, singleLinksArray} from "../../resources/links"
 import {Link} from "gatsby";
 
-const NavLinks = () => {
+const NavLinks = ({ path }) => {
     const newLinksArray = linksArray.map(elem => {
-        if (typeof window !== 'undefined' && !singleLinksArray.includes(window.location.pathname) && elem.charAt(0) === "#") {
+        if (!singleLinksArray.includes(path) && elem.charAt(0) === "#") {
             return `/${elem}`
         }
         return elem
@@ -24,7 +23,7 @@ const NavLinks = () => {
     )
 }
 
-const Header = () => {
+const Header = ({path}) => {
     const nav = useRef(null)
     const collapse = useRef(null)
     const [navExpanded, setNavExpanded] = useState(false)
@@ -59,7 +58,9 @@ const Header = () => {
                 <Nav className="mr-auto">
                 </Nav>
                 <Nav className="justify-content-end">
-                    <NavLinks/>
+                    <NavLinks
+                        path={path}
+                    />
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

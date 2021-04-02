@@ -4,10 +4,12 @@ import {b6aData} from "../resources/texts"
 import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
 
-const B6APage = () => {
+const B6APage = ({location}) => {
     return (
         <>
-            <Header/>
+            <Header
+                path={location.pathname}
+            />
             <ProjectPageTemplate
                 data={b6aData}
             />
