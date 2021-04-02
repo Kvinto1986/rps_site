@@ -1,17 +1,17 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Image, Nav, Navbar} from "react-bootstrap"
+import window from "global"
 import {commonIcons} from "../../resources/images"
 import {linksArray, singleLinksArray} from "../../resources/links"
 import {Link} from "gatsby";
 
 const NavLinks = () => {
     const newLinksArray = linksArray.map(elem => {
-        if (!singleLinksArray.includes(window.location.pathname) && elem.charAt(0) === "#") {
+        if (typeof window !== 'undefined' && !singleLinksArray.includes(window.location.pathname) && elem.charAt(0) === "#") {
             return `/${elem}`
         }
         return elem
     })
-
 
     return (
         newLinksArray.map((elem, index) => {
