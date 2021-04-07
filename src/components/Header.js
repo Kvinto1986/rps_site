@@ -22,7 +22,7 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" className="container mt-3 mb-3">
             <Navbar.Brand
-                className="justify-content-start">
+                className="justify-content-start justify-content-start">
                 <Link to="/">
                     <Image src={commonIcons.remedyIcon}/>
                 </Link>
